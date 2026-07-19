@@ -26,8 +26,7 @@ from langchain_groq import ChatGroq
 
 # ---- Load API key from .env file (never hardcode it) ----
 load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-
+GROQ_API_KEY = st.secrets.get("GROQ_API_KEY", os.getenv("GROQ_API_KEY"))
 st.set_page_config(page_title="Nova Gear Support Bot", page_icon="🎒")
 st.title("🎒 Nova Gear — AI Customer Support")
 st.caption("Ask about shipping, returns, products, or policies. Answers are grounded in Nova Gear's official FAQ.")
