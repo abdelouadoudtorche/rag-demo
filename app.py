@@ -20,13 +20,13 @@ from dotenv import load_dotenv
 from langchain_community.document_loaders import TextLoader, PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import FastEmbedEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_groq import ChatGroq
 
 # ---- Load API key from .env file (never hardcode it) ----
 load_dotenv()
-GROQ_API_KEY = st.secrets.get("GROQ_API_KEY", os.getenv("GROQ_API_KEY"))
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 st.set_page_config(page_title="Nova Gear Support Bot", page_icon="🎒")
 st.title("🎒 Nova Gear — AI Customer Support")
 st.caption("Ask about shipping, returns, products, or policies. Answers are grounded in Nova Gear's official FAQ.")
@@ -58,7 +58,7 @@ def build_vectorstore(file_content, file_name):
 
     # STEP 2: Convert each chunk into an embedding (a vector of numbers).
     # This model runs locally on your machine — free, no API key needed.
-    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    embeddings = FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
 
     # STEP 3: Store all chunk-vectors in Chroma, a local vector database.
     # This lets us later search "which chunks are most similar to this question?"

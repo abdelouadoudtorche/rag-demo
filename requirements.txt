@@ -2,6 +2,6 @@ streamlit
 langchain
 langchain-community
 langchain-groq
-sentence-transformers
+fastembed
 chromadb
 python-dotenv
