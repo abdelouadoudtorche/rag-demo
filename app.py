@@ -28,8 +28,8 @@ from langchain_groq import ChatGroq
 load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 st.set_page_config(page_title="Nova Gear Support Bot", page_icon="🎒")
-st.title("🎒 Nova Gear — AI Customer Support")
-st.caption("Ask about shipping, returns, products, or policies. Answers are grounded in Nova Gear's official FAQ.")
+st.title("Your AI chatbot is here ")
+st.caption("Once you upload the document ,I'll answer anything based on the document , if the info isn't available , I'll say that I don't know")
 uploaded_file = st.file_uploader("Upload a document (.txt or .pdf)", type=["txt", "pdf"])
 # ---- STEP 1 & 2 & 3: Build the knowledge base (only runs once, then cached) ----
 @st.cache_resource
