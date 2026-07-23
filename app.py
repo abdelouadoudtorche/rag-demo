@@ -27,7 +27,7 @@ from langchain_groq import ChatGroq
 # ---- Load API key from .env file (never hardcode it) ----
 load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-st.set_page_config(page_title="Nova Gear Support Bot", page_icon="🎒")
+st.set_page_config(page_title="RAG Chatbot DEMO", page_icon="🗨️")
 st.title("Your AI chatbot is here ")
 st.caption("Once you upload the document ,I'll answer anything based on the document , if the info isn't available , I'll say that I don't know")
 uploaded_file = st.file_uploader("Upload a document (.txt or .pdf)", type=["txt", "pdf"])

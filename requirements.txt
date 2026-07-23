@@ -3,5 +3,6 @@ langchain
 langchain-community
 langchain-groq
 fastembed
+pypdf
 chromadb
 python-dotenv
